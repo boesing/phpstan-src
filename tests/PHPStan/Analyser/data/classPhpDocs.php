@@ -6,6 +6,7 @@ use function PHPStan\Analyser\assertType;
 
 /**
  * @method string string()
+ * @method non-empty-string nonEmptyString()
  * @method array arrayOfStrings()
  * @psalm-method array<string> arrayOfStrings()
  * @phpstan-method array<string, int> arrayOfInts()
@@ -26,6 +27,7 @@ class Foo
         assertType('array<string, int>', $this->arrayOfInts());
         assertType('mixed', $this->overrodeMethod());
         assertType('mixed', static::overrodeStaticMethod());
+        assertType('non-empty-string', $this->nonEmptyString());
     }
 }
 

@@ -51,6 +51,7 @@ use PHPStan\Type\IntersectionType;
 use PHPStan\Type\IterableType;
 use PHPStan\Type\MixedType;
 use PHPStan\Type\NeverType;
+use PHPStan\Type\NonEmptyStringType;
 use PHPStan\Type\NonexistentParentClassType;
 use PHPStan\Type\NullType;
 use PHPStan\Type\ObjectType;
@@ -138,6 +139,9 @@ class TypeNodeResolver
 
 			case 'string':
 				return new StringType();
+
+			case 'non-empty-string':
+				return new NonEmptyStringType();
 
 			case 'class-string':
 				return new ClassStringType();
